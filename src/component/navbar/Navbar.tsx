@@ -1,22 +1,30 @@
-import React, { ReactNode } from "react";
-import classes from "Navbar.module.css";
+import React, { CSSProperties, ReactNode } from "react";
+import classes from "./Navbar.module.css";
 
 interface Props {
-  leftIcon?: any;
-  rightButton?: any;
+  testId: string;
+  leftItem: { src: string; style?: CSSProperties; onImageClick?: () => void };
+  rightItem?: ReactNode[];
 }
 
-const Navbar: React.FC<Props> = ({ leftIcon, rightButton }) => {
+const Navbar: React.FC<Props> = ({ testId, leftItem, rightItem }) => {
   return (
     <div className={classes.mainContainer}>
-      <div className={classes.leftContainer}></div>
-      <div className={classes.rightContainer}>
-        {!!rightButton &&
-          rightButton.map(
-            (textButton: ReactNode, index: string | number | undefined) => {
+      <div className={classes.leftContainer}>
+        <img
+          src={leftItem.src}
+          style={leftItem.style}
+          onClick={leftItem.onImageClick}
+          alt="logo"
+        />
+      </div>
+      <div className={classes.rightItemContainer}>
+        {!!rightItem &&
+          rightItem.map(
+            (menu: ReactNode, index: string | number | undefined) => {
               return (
-                <div className={classes.rightContainerComponent}>
-                  {textButton}
+                <div key={index} className={classes.rightitem}>
+                  {menu}
                 </div>
               );
             }
