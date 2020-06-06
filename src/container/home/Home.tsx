@@ -3,6 +3,11 @@ import BackgroundFull from "../../component/backgroundFull/BackgroundFull";
 import { Redirect } from "react-router-dom";
 import Navbar from "../../component/navbar/Navbar";
 import TextClick from "../../component/textClick/TextClick";
+import TextContent from "../../component/textContent/TextContent";
+import Button from "../../component/button/Button";
+import Paragraph from "../../component/typography";
+
+const { B_30_BLACK, B_100_BLACK } = Paragraph;
 
 interface Props {}
 const Home: React.FC<Props> = () => {
@@ -33,11 +38,11 @@ const Home: React.FC<Props> = () => {
               <TextClick
                 testId="click-1"
                 clickText="Home"
-                textStyle={{
-                  color: "red",
-                  fontWeight: 400,
-                  fontSize: 15,
-                }}
+                // textStyle={{
+                //   color: "red",
+                //   fontWeight: 400,
+                //   fontSize: 15,
+                // }}
                 onTextClick={() => {
                   goHome(true);
                 }}
@@ -45,11 +50,11 @@ const Home: React.FC<Props> = () => {
               <TextClick
                 testId="click-2"
                 clickText="About"
-                textStyle={{
-                  color: "red",
-                  fontWeight: 400,
-                  fontSize: 15,
-                }}
+                // textStyle={{
+                //   color: "red",
+                //   fontWeight: 400,
+                //   fontSize: 15,
+                // }}
                 onTextClick={() => {
                   goAbout(true);
                 }}
@@ -57,17 +62,35 @@ const Home: React.FC<Props> = () => {
               <TextClick
                 testId="click-3"
                 clickText="Contact"
-                textStyle={{
-                  color: "red",
-                  fontWeight: 400,
-                  fontSize: 15,
-                }}
+                // textStyle={{
+                //   color: "red",
+                //   fontWeight: 400,
+                //   fontSize: 15,
+                // }}
                 onTextClick={() => {
                   goHome(true);
                 }}
               />,
             ]}
           />
+          <div style={{ paddingTop: 200 }}>
+            <TextContent
+              testId="content-1"
+              contentStyle={{ textAlign: "left" }}
+              children={
+                <>
+                  <B_100_BLACK>Hello, I'm Farid</B_100_BLACK>
+                  <B_30_BLACK>I'm Web Developer and a human</B_30_BLACK>
+                  <Button
+                    testId="btn-1"
+                    buttonName="Know me better"
+                    width="25%"
+                    buttonColor={{ top: "blue", bottom: "white" }}
+                  />
+                </>
+              }
+            />
+          </div>
         </div>
       </BackgroundFull>
     </>

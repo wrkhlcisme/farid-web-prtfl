@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { Redirect } from "react-router-dom";
 import TextClick from "../../component/textClick/TextClick";
 import Navbar from "../../component/navbar/Navbar";
-
+import TextContent from "../../component/textContent/TextContent";
+import Paragraph from "../../component/typography";
+import Button from "../../component/button/Button";
+const { R_11_BLACK, B_30_BLACK } = Paragraph;
 interface Props {}
 const Component: React.FC<Props> = () => {
   const [Home, goHome] = useState(false);
@@ -75,6 +78,26 @@ const Component: React.FC<Props> = () => {
               }}
             />,
           ]}
+        />
+        <TextContent
+          testId="text-content-1"
+          contentStyle={{
+            textAlign: "justify",
+          }}
+          children={
+            <>
+              <R_11_BLACK>test small</R_11_BLACK>
+              <B_30_BLACK>TEST</B_30_BLACK>
+            </>
+          }
+        />
+        <Button
+          testId="test-button"
+          buttonName="Click Here"
+          width="70%"
+          onClickButton={() => {
+            goHome(true);
+          }}
         />
       </div>
     </>

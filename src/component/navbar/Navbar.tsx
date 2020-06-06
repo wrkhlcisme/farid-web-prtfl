@@ -1,5 +1,7 @@
 import React, { CSSProperties, ReactNode } from "react";
 import classes from "./Navbar.module.css";
+import Paragraph from "../../component/typography";
+const { B_15_BLACK } = Paragraph;
 
 interface Props {
   testId: string;
@@ -24,7 +26,7 @@ const Navbar: React.FC<Props> = ({ testId, leftItem, rightItem }) => {
             (menu: ReactNode, index: string | number | undefined) => {
               return (
                 <div key={index} className={classes.rightitem}>
-                  {menu}
+                  <B_15_BLACK>{menu}</B_15_BLACK>
                 </div>
               );
             }

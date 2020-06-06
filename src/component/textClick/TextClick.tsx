@@ -1,10 +1,10 @@
-import React, { CSSProperties, ReactNode } from "react";
+import React, { CSSProperties } from "react";
 import classes from "./TextClick.module.css";
 
 interface Props {
   testId: string;
   clickText: string;
-  textStyle: CSSProperties;
+  textStyle?: CSSProperties;
   onTextClick: (testId: string) => void;
 }
 const TextClick: React.FC<Props> = ({
@@ -16,7 +16,7 @@ const TextClick: React.FC<Props> = ({
   return (
     <div style={{ width: "100%" }}>
       <p
-        className="textClickMain"
+        className={classes.textClickMain}
         id={testId}
         onClick={() => {
           onTextClick(testId!);
